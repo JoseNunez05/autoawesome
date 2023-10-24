@@ -1,0 +1,13 @@
+name: owasp
+on: push
+jobs: 
+  scan: 
+    runs-on: ubuntu-latest
+    name: scanning app
+    steps: 
+      - name: main page
+        uses: actions/checkout@v2
+      - name: ZAP Full Scan
+        uses: zaproxy/action-baseline@v0.9.0
+        with: 
+          target: https://thinking-tester-contact-list.herokuapp.com/
