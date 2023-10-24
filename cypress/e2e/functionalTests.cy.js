@@ -1,6 +1,6 @@
 describe('functional test cases', () => {
 
-    // accessing userinfo json file to make login blocks look nicer
+    // accessing userinfo json file to make login blocks less clogged
     let userinfo;
     before( () => {
         cy.fixture('userinfo.json').then( (info) => {
