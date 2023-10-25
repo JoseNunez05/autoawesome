@@ -20,7 +20,7 @@ describe('functional test cases', () => {
         cy.url().should('include', 'https://thinking-tester-contact-list.herokuapp.com/contactList');
     })
 
-    it.only('logout feature', () => {
+    it('logout feature', () => {
         // logging out
         cy.wait(5000)
         cy.get('#logout').click();
@@ -104,7 +104,7 @@ describe('functional test cases', () => {
         cy.get('#cancel').click();
     })
 
-    it.only('negative test case: error when entering wrong input/input type', () => {
+    it('negative test case: error when entering wrong input/input type', () => {
         // go to contact creation page
         cy.get('#add-contact').click();
         // should be in the contact creation page
