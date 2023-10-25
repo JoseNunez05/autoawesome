@@ -14,3 +14,5 @@ jobs:
       - name: Run ZAP API Scan
         run: 
           sudo docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py -t openapi.json -f openapi -c api-scan.conf
+        with:
+          target: https://thinking-tester-contact-list.herokuapp.com/
