@@ -1,4 +1,4 @@
-name: owasp
+name: baseline-scan
 on: push
 jobs: 
   scan: 
@@ -7,7 +7,7 @@ jobs:
     steps: 
       - name: main page
         uses: actions/checkout@v2
-      - name: ZAP Full Scan
+      - name: ZAP Base Scan
         uses: zaproxy/action-baseline@v0.9.0
         with: 
           target: https://thinking-tester-contact-list.herokuapp.com/

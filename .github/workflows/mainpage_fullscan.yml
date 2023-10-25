@@ -1,4 +1,4 @@
-name: owasp
+name: full scan
 on: push
 jobs: 
   scan: 
