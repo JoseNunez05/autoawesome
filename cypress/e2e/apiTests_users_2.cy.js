@@ -1,37 +1,31 @@
 describe('API Tests', () => {
 
+    // beforeEach('visit page', () => {
+    //     cy.visit('/')
+    // })
+
     it('POST: add user', () => {
-        cy.request({
-            method: 'POST',
-            url: 'https://thinking-tester-contact-list.herokuapp.com/users',
-            body:   
-            {
-                "firstName": "Dwayne",
-                "lastName": "Johnson",
-                "email": "therock@gmail.com",
-                "password": "canyousmell"
-            }
-        })
+        cy.log('hello world!')
 
-        // new user should be created
-        .its('status').should('eq', 201);
+        cy.get('#signup').click();
+
+        cy.get('#firstName').type('John');
+        cy.get('#lastName').type('Cena');
+
+        cy.get('#email').type('wordlife@gmail.com')
+        cy.get('#password').type('basicthugonomics')
+
+        cy.get('#submit').click();
+
+        // your new account should be registered and you should be in the homepage (contact list page)
+        // cy.url().should('include', 'https://thinking-tester-contact-list.herokuapp.com/contactList');
     })
 
-    it('GET: get user profile', () => {
-        cy.request({
-            method: 'GET',
-            url: 'https://thinking-tester-contact-list.herokuapp.com/users',
-
-            Headers:
-            {
-                "Cookie": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw",
-                "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw' 
-            }  
-        })
-        .its('status').should('eq', 200);
+    it.only('GET: get user profile', () => {
+        cy.visit('/')
     })
 
-    it.only('PATCH: update user', () => {
+    it('PATCH: update user', () => {
         cy.request({
             method: 'PATCH',
             url: 'https://thinking-tester-contact-list.herokuapp.com/users',

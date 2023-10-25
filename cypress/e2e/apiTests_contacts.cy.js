@@ -12,7 +12,7 @@ describe('API Tests', () => {
                 "firstName": "John",
                 "lastName": "Cena",
                 "birthdate": "1976-07-04",
-                "email": "wordlife@gmail.com",
+                "email": "basicthugonomics@gmail.com",
                 "phone": "8001234567",
                 "street1": "Hall of Fame",
                 "street2": "Apartment B",
@@ -26,14 +26,15 @@ describe('API Tests', () => {
         .its('status').should('eq', 201)
     })
 
-    it('GET: get contact list', () => {
+    it.only('GET: get contact list', () => {
         cy.request({
             method: 'GET',
             url: 'https://thinking-tester-contact-list.herokuapp.com/contacts',
             Headers:
             {
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
-            }
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
+            },
+            // failOnStatusCode: false
         })
         .its('status').should('eq', 200)
     })
