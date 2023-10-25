@@ -1,13 +1,6 @@
 name: api scans
-on:
-  push:
-    branches: [development]
-  pull_request:
-    branches: [development]
-  
-  workflow_dispatch:
+on: push
 jobs:
-  build:
   scans:
     runs-on: ubuntu-latest
     name: ZAP API Scan
