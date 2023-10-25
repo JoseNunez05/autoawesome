@@ -1,11 +1,12 @@
 describe('API Tests', () => {
-    it('POST: add contact', () => {
+    it.skip('POST: add contact', () => {
         cy.request({
             method: 'POST',
             url: 'https://thinking-tester-contact-list.herokuapp.com/contacts',
-            Headers:
+            headers:
             {
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
+                // "Cookie": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw",
+                "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgyNTYyNjN9.fAat2Qu1gzudKQNTHOQXiJzcWHdpAMPQ_eNMPLL-ujQ' 
             },
             body:
             {
@@ -26,13 +27,13 @@ describe('API Tests', () => {
         .its('status').should('eq', 201)
     })
 
-    it.only('GET: get contact list', () => {
+    it('GET: get contact list', () => {
         cy.request({
             method: 'GET',
             url: 'https://thinking-tester-contact-list.herokuapp.com/contacts',
-            Headers:
+            headers:
             {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgyNTYyNjN9.fAat2Qu1gzudKQNTHOQXiJzcWHdpAMPQ_eNMPLL-ujQ"
             },
             // failOnStatusCode: false
         })
@@ -43,11 +44,11 @@ describe('API Tests', () => {
         cy.request({
             method: 'GET',
             url: 'https://thinking-tester-contact-list.herokuapp.com/contacts/6538621ea748e20013f660d2',
-            Headers:
+            headers:
             {
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
-            },
-            failOnStatusCode: false
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgyNTYyNjN9.fAat2Qu1gzudKQNTHOQXiJzcWHdpAMPQ_eNMPLL-ujQ"
+            }
+            // failOnStatusCode: false
         })
     })
 
@@ -55,9 +56,9 @@ describe('API Tests', () => {
         cy.request({
             method: 'PUT',
             url: 'https://thinking-tester-contact-list.herokuapp.com/contacts/6538621ea748e20013f660d2',
-            Headers:
+            headers:
             {
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgyNTYyNjN9.fAat2Qu1gzudKQNTHOQXiJzcWHdpAMPQ_eNMPLL-ujQ"
             },
             body:
             {
@@ -81,9 +82,9 @@ describe('API Tests', () => {
         cy.request({
             method: 'PATCH',
             url: 'https://thinking-tester-contact-list.herokuapp.com/contacts/6538621ea748e20013f660d2',
-            Headers:
+            headers:
             {
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgyNTYyNjN9.fAat2Qu1gzudKQNTHOQXiJzcWHdpAMPQ_eNMPLL-ujQ"
             },
             body:
             {
@@ -107,9 +108,9 @@ describe('API Tests', () => {
         cy.request({
             method: 'PATCH',
             url: 'https://thinking-tester-contact-list.herokuapp.com/contacts/6538621ea748e20013f660d2',
-            Headers:
+            headers:
             {
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgxOTMxNjZ9.sZdjLZacpaP0C1iRE0oWThxb6T4Y9G2gflnopRuOVZw"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM4NWJhY2UyZDU1MTAwMTM1MzE1ZTUiLCJpYXQiOjE2OTgyNTYyNjN9.fAat2Qu1gzudKQNTHOQXiJzcWHdpAMPQ_eNMPLL-ujQ"
             },
             body:
             {
