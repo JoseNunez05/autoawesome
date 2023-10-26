@@ -9,8 +9,12 @@ stages:
     jobs:
     - job: job1
       steps:
+      - name: test run
+        uses: github-action@v5
       - script: echo "this is job 1!"
     - job: job2
       dependsOn: "J2"
       steps:
+      - name: test run
+        uses: github-action@v5
       - script: echo "this is job 2!"
