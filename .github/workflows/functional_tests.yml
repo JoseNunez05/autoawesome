@@ -1,16 +1,30 @@
 name: Functional Tests
 on: push
 jobs: 
-  cypress-run:
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix: 
-        containers: [1]
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-            
+  - Functional Tests: 
+    cypress-run:
+      runs-on: ubuntu-22.04
+      strategy:
+        fail-fast: false
+        matrix: 
+          containers: [1]
+      steps: 
+        - name: Checkout
+          uses: actions/checkout@v3
+          
+        - name: Cypress run
+          uses: cypress-io/github-action@v5
+    
+    - API Tests:
+      cypress-run:
+      runs-on: ubuntu-22.04
+      strategy:
+        fail-fast: false
+        matrix: 
+          containers: [1]
+      steps: 
+        - name: Checkout
+          uses: actions/checkout@v3
+          
+        - name: Cypress run
+          uses: cypress-io/github-action@v5
